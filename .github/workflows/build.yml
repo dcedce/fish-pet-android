@@ -15,8 +15,9 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '8.2'  # 👈 核心修复：锁定使用 8.2 版本，坚决不用最新的
 
-    # 关键黑科技：强制自动输入 'y'，同意所有 Android 协议
     - name: Accept Android Licenses
       run: yes | sdkmanager --licenses || true
 
